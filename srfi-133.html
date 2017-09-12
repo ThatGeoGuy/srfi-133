@@ -98,7 +98,11 @@ None at this time.
       <ul>
 	<li>2016/4/1 (Fixed description of <code>vector-unfold!</code>)</li>
 	<li>2016/8/10 (Fixed typos.)</li>
-	<li>2016/9/2 (Reversed order of arguments to <code>vector-cumulate</code>.)</li></ul></ul> 
+	<li>2016/9/2 (Changed order of arguments to <code>vector-cumulate</code>
+	  from <code>(vector-cumulate f vec knil)</code> to
+          <code>(vector-cumulate f knil vec)</code> to match the
+          argument order of vector-fold.)</li>
+	<li>2017/6/5 (Added second return type of <code>vector-partition</code>.)</li></ul></ul>
     <h1 class="nonheader"><a name="Abstract">2. Abstract</a></h1>
     <p>
       This <a href="#SRFI">SRFI</a> proposes a comprehensive
@@ -1487,7 +1491,7 @@ zot</pre>
         <br />
         <br />
         <code class="example-call">
-          (vector-cumulate + '#(3 1 4 1 5 9 2 5 6) 0)
+          (vector-cumulate + 0 '#(3 1 4 1 5 9 2 5 6))
         </code>
         <br />
         <code class="example-value">
@@ -1732,7 +1736,7 @@ zot</pre>
       <dt class="proc-spec">
         <a name="vector-partition">
           (vector-partition <i>pred? vec</i>)
-          -&gt; vector
+          -&gt; vector and integer
         </a>
       </dt>
       <dd>
