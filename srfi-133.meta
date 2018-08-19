@@ -7,6 +7,8 @@
         "vectors/vectors-test.scm"
         "tests/run.scm"
         "srfi-133.setup"
+        "srfi-133.egg"
+        "srfi-133.scm"
         "srfi-133.meta"
         "srfi-133.release-info"
         "LICENSE"
