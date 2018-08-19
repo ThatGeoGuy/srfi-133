@@ -1,6 +1,13 @@
 (module srfi-133 ()
   (import (except scheme vector-fill! vector->list list->vector))
-  (import (only chicken include error use))
+
+  (cond-expand
+    (chicken-5
+     (import (except (chicken base) receive vector-copy!))
+     (import (chicken module)))
+    (else
+     (import (only chicken include error use))))
+
   ;; Constructors
   (export vector-unfold vector-unfold-right vector-copy vector-reverse-copy
           vector-append vector-concatenate vector-append-subvectors)
